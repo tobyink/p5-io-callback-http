@@ -1,0 +1,14 @@
+# This file provides instructions for packaging.
+
+`IO-Callback-HTTP`
+	perl_version_from m`IO::Callback::HTTP`;
+	version_from      m`IO::Callback::HTTP`;
+	readme_from       m`IO::Callback::HTTP`;
+	requires          p`Encode`;
+	requires          p`HTTP::Request::Common`;
+	requires          p`IO::Callback`;
+	requires          p`LWP::UserAgent`;
+	requires          p`namespace::clean`;
+	requires          p`URI`;
+	test_requires     p`Test::More 0.61`.
+

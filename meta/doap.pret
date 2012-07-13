@@ -1,0 +1,22 @@
+# This file contains general metadata about the project.
+
+@prefix : <http://usefulinc.com/ns/doap#>.
+
+`IO-Callback-HTTP`
+	:programming-language "Perl" ;
+	:shortdesc            "read/write from HTTP URIs as if they were filehandles";
+	:homepage             <https://metacpan.org/release/IO-Callback-HTTP>;
+	:download-page        <https://metacpan.org/release/IO-Callback-HTTP>;
+	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=IO-Callback-HTTP>;
+	:created              2012-07-13;
+	:license              <http://dev.perl.org/licenses/>;
+	:maintainer           cpan:TOBYINK;
+	:developer            cpan:TOBYINK.
+
+<http://dev.perl.org/licenses/>
+	dc:title  "the same terms as the perl 5 programming language system itself".
+
+cpan:TOBYINK
+	foaf:name  "Toby Inkster";
+	foaf:mbox  <mailto:tobyink@cpan.org>.
+
