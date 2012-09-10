@@ -140,23 +140,12 @@ IO::Callback::HTTP - read/write from HTTP URIs as if they were filehandles
 
  use IO::Callback::HTTP;
  
- my $fh = IO::Callback::HTTP::->new("<", "http://www.example.com/");
+ my $fh = IO::Callback::HTTP->new("<", "http://www.example.com/");
  
  while (my $line = <$fh>)
  {
     print $line;
  }
-
-=head1 NOTE
-
-L<IO::Callback::HTTP> is a subclass of L<IO::Callback>.
-
-At the time of writing, current versions of IO-Callback (1.08)
-B<< fail their own test suite >> on recent versions of Perl with
-recent versions of L<Carp> called. The actual errors seem to be
-pretty unimportant, so I'd recommend installing IO-Callback
-without running the test suite, or at least ignoring any errors
-in "t/syswrite-params.t".
 
 =head1 DESCRIPTION
 
@@ -167,15 +156,15 @@ including FTP, Gopher, etc).
 
 Why would you do this? Not for efficiency reasons, that's for
 sure. However, certain APIs expect to be passed filehandles; this
-module gives you them.
+module gives you those filehandles.
 
 Files can be opened in either read mode, using:
 
- my $fh = IO::Callback::HTTP::->new('<', $request, %options);
+ my $fh = IO::Callback::HTTP->new('<', $request, %options);
 
 or write mode:
 
- my $fh = IO::Callback::HTTP::->new('>', $request, %options);
+ my $fh = IO::Callback::HTTP->new('>', $request, %options);
 
 The C<< $fh >> variable will then act like a normal Perl filehandle,
 but instead of interacting with a local file on disk, you'll be
