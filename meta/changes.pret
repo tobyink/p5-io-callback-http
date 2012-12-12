@@ -4,3 +4,12 @@
 	issued  2012-09-11;
 	label   "Initial release".
 
+`IO-Callback-HTTP 0.002 cpan:TOBYINK`
+	issued  2012-12-12;
+	changeset [
+		item "Skip the bulk of the test suite on MSWin32."^^Packaging;
+		item "Document test suite."^^Documentation;
+		item "Ensure that $! is set even if failure callback dies."^^Bugfix;
+		item "Allow Carpish shortcuts for failure callbacks."^^Addition;
+	].
+
