@@ -92,8 +92,8 @@ like(
 	'failure callback works',
 );
 is(
-	$!+0,
-	5,
+	$! + 0,
+	Errno::EIO + 0,
 	'sets $! correctly',
 );
 
