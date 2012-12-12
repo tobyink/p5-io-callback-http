@@ -73,4 +73,28 @@ while (<$fh2>) { $found_it++ if m{Here-It-Is}i };
 
 is($found_it => 1, 'another lines seems fine');
 
+sub Test::HTTP::Server::Request::not_found {
+	my $self = shift;
+	$self->{out_code} = '404 Not Found';
+	'Not found';
+}
+
+my $fh3 = IO::Callback::HTTP::->new(
+	'<',
+	POST( $server->uri.'not_found' ),
+	failure => 'croak',
+);
+
+my $data = eval { <$fh3> };
+like(
+	$@,
+	qr{HTTP POST request for \<\S+not_found\> failed: 404 Not Found},
+	'failure callback works',
+);
+is(
+	$!+0,
+	5,
+	'sets $! correctly',
+);
+
 done_testing;
