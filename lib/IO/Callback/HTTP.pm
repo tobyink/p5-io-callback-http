@@ -21,10 +21,14 @@ use URI                      qw();
 use namespace::clean;
 use base 'IO::Callback';
 
-our $USER_AGENT = LWP::UserAgent->new(
-	agent => sprintf('%s/%s ', __PACKAGE__, __PACKAGE__->VERSION),
-);
 our $_LAST_CODE;
+
+sub USER_AGENT ()
+{
+	our $USER_AGENT ||= LWP::UserAgent->new(
+		agent => sprintf('%s/%s ', __PACKAGE__, __PACKAGE__->VERSION),
+	);
+}
 
 sub open
 {
@@ -54,7 +58,7 @@ sub _mk_reader
 	
 	if (blessed $code and $code->isa('HTTP::Request'))
 	{
-		my $ua    = $args{agent} || $USER_AGENT;
+		my $ua    = $args{agent} || USER_AGENT;
 		my $bytes = exists $args{bytes} ? $args{bytes} : true;
 		my $req   = $code;
 		my $done  = false;
@@ -93,7 +97,7 @@ sub _mk_writer
 	
 	if (blessed $code and $code->isa('HTTP::Request'))
 	{
-		my $ua    = $args{agent} || $USER_AGENT;
+		my $ua    = $args{agent} || USER_AGENT;
 		my $bytes = exists $args{bytes} ? $args{bytes} : true;
 		my $req   = $code;
 		my $done  = false;
