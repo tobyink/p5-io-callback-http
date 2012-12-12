@@ -8,7 +8,7 @@ use utf8;
 
 BEGIN {
 	$IO::Callback::HTTP::AUTHORITY = 'cpan:TOBYINK';
-	$IO::Callback::HTTP::VERSION   = '0.001';
+	$IO::Callback::HTTP::VERSION   = '0.002';
 }
 
 use Encode                   qw( encode_utf8 );
@@ -238,6 +238,12 @@ you may be interested in the result of a POST or PUT request.
 =item open
 
 =end private
+
+=head1 CAVEATS
+
+Most of the test suite is skipped on MSWin32 because L<Test::HTTP::Server>
+does not currently support that platform. IO::Callback::HTTP is I<believed>
+to function correctly on Windows, but it's had no meaningful testing.
 
 =head1 BUGS
 

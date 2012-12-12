@@ -1,10 +1,39 @@
+=head1 PURPOSE
+
+Tests that IO::Callback::HTTP can be used as a write filehandle.
+
+=head1 CAVEATS
+
+This test is skipped on MSWin32 because current versions of
+L<Test::HTTP::Server> do not support that platform. Nevertheless,
+L<IO::Callback::HTTP> is I<believed> to work on MSWin32.
+
+=head1 AUTHOR
+
+Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2012 by Toby Inkster.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
 use 5.008008;
 use strict;
 
 use lib "lib";
 use lib "t/lib";
 
-use Test::More tests => 4;
+use Test::More;
+
+BEGIN {
+	plan skip_all => 'Test::HTTP::Server does not run on Windows'
+		if $^O eq 'MSWin32'
+};
+
 use Test::HTTP::Server;
 use HTTP::Request::Common qw(POST);
 use IO::Callback::HTTP;
@@ -65,3 +94,5 @@ print $fh 'Hello World';
 print $fh2 'Hello World';
 close $fh;
 close $fh2;
+
+done_testing;
