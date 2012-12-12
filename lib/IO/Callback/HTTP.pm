@@ -37,7 +37,7 @@ sub open
 	
 	unless (ref $code eq 'CODE')
 	{
-		$_LAST_CODE = 
+		$_LAST_CODE =
 		$code = ($mode eq '<')
 			? $self->_mk_reader($code, @args)
 			: $self->_mk_writer($code, @args)
@@ -74,8 +74,7 @@ sub _mk_reader
 	$self->_process_arg(\%args);
 	
 	if ((not ref $code)
-	or  (blessed $code and $code->isa('URI'))
-	   )
+	or  (blessed $code and $code->isa('URI')))
 	{
 		$code = GET($code);
 	}
@@ -114,8 +113,7 @@ sub _mk_writer
 	$self->_process_arg(\%args);
 	
 	if ((not ref $code)
-	or  (blessed $code and $code->isa('URI'))
-	   )
+	or  (blessed $code and $code->isa('URI')))
 	{
 		$code = PUT($code, Content => '');
 	}
@@ -268,6 +266,8 @@ you may be interested in the result of a POST or PUT request.
 =begin private
 
 =item open
+
+=item USER_AGENT
 
 =end private
 
