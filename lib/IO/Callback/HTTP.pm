@@ -8,7 +8,7 @@ use utf8;
 
 BEGIN {
 	$IO::Callback::HTTP::AUTHORITY = 'cpan:TOBYINK';
-	$IO::Callback::HTTP::VERSION   = '0.002';
+	$IO::Callback::HTTP::VERSION   = '0.003';
 }
 
 use Carp                     qw();

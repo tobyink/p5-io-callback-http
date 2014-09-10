@@ -13,3 +13,10 @@
 		item "Allow Carpish shortcuts for failure callbacks."^^Addition;
 	].
 
+
+`IO-Callback-HTTP 0.003 cpan:TOBYINK`
+	issued    2014-09-10;
+	changeset [
+		item "Switch to Dist::Inkt."^^Packaging;
+	].
+
